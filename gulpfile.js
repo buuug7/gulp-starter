@@ -62,3 +62,13 @@ gulp.task('scripts', function() {
   .pipe(sourcemaps.write())
   .pipe(gulp.dest(paths.scriptsTo));
 });
+
+
+gulp.task('watch',function() {
+    gulp.watch(paths.htmlFrom,['copy:html']);
+    gulp.watch(paths.stylesFrom,['styles']);
+    gulp.watch(paths.scriptsFrom,['scripts']);
+});
+
+gulp.task('default',['copy:libs','watch']);
+gulp.task('build',['copy:libs','copy:html','styles','scripts']);

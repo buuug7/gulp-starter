@@ -1,3 +1,7 @@
+@import "variables";
+@import "node_modules/bootstrap/scss/bootstrap";
+
+
 .test{
     background-color:red;
     .aa{
@@ -6,5 +10,9 @@
     .bb{
         color:yellow;
         transform:rotate(30deg);
+    }
+    .cc{
+        color:green;
+        font-size:22px;
     }
 }
