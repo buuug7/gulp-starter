@@ -1,0 +1,9 @@
+{
+  "presets": [
+    ["env", {
+      "targets": {
+        "browsers": ["last 8 versions", "safari >= 7"]
+      }
+    }]
+  ]
+}
