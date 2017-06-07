@@ -1,4 +1,3 @@
-window.$ = window.jQuery = require('jquery');
 
 let name = "buuug7";
 `hello ${name}`;
@@ -6,11 +5,7 @@ let name = "buuug7";
 
 let obj = {
     name,
-    age,
     method() {
         return ')))';
     }
 }
-
-
-console.log($);
