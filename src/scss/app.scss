@@ -2,9 +2,18 @@
 @import "node_modules/bootstrap/scss/bootstrap";
 @import "node_modules/animate-sass/animate";
 
-.hover-rotateIn{
-    &:hover{
+.hover-rotateIn {
+    &:hover {
         @include animate-prefixer(animation-name, rollIn);
     }
 }
+
+@include media-breakpoint-up(sm) {
+    .test {
+        color: red;
+    }
+}
+
+
+
 
