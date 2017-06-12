@@ -2,13 +2,18 @@ import gulp from 'gulp';
 import sass from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
 import autoprefixer from 'gulp-autoprefixer';
-import babel from 'gulp-babel';
-import concat from  'gulp-concat';
+import browserify from 'browserify';
+import babelify from 'babelify';
 import del from 'del';
 import gulpif from 'gulp-if';
 import sprity from 'sprity';
+import browserSync from 'browser-sync';
+import plumber from 'gulp-plumber';
+import fs from 'fs';
 
 let paths = {
+    imagesFrom: ['src/images/**/*'],
+    imagesTo: 'dist/images',
     libsFrom: [
         'node_modules/jquery/dist/**/*.js',
         'node_modules/bootstrap/dist/**/*',
@@ -28,10 +33,16 @@ gulp.task("clean", () => {
     return del(["dist"]);
 });
 
+gulp.task('copy:images', () => {
+    return gulp.src(paths.imagesFrom)
+        .pipe(gulp.dest(paths.imagesTo));
+});
+
 gulp.task("copy:libs", () => {
     return gulp.src(paths.libsFrom, {
         base: 'node_modules'
     })
+        .pipe(gulp.dest('./src/libs')) // for hint work in src directory
         .pipe(gulp.dest(paths.libsTo));
 });
 
@@ -42,6 +53,7 @@ gulp.task('copy:html', () => {
 
 gulp.task('styles', () => {
     return gulp.src(paths.stylesFrom)
+        .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(sass.sync({
             outputStyle: 'nested' // Default: nested Values: nested, expanded, compact, compressed
@@ -52,18 +64,20 @@ gulp.task('styles', () => {
         }))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(paths.stylesTo))
-        .pipe(gulp.dest('./src/styles'));
+        .pipe(gulp.dest('./src/styles')); // for hint work in src directory
 });
 
 gulp.task('scripts', () => {
-    return gulp.src(paths.scriptsFrom)
-        .pipe(sourcemaps.init())
-        .pipe(babel({
-            presets: ['env']
-        }))
-        .pipe(concat('app.js'))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest(paths.scriptsTo));
+    browserify({debug: true})
+        .transform('babelify',{
+            comments: true
+        })
+        .require("./src/scripts/entry.js", {entry: true})
+        .bundle()
+        .on("error", function (err) {
+            console.log("Error: " + err.message);
+        })
+        .pipe(fs.createWriteStream(paths.scriptsTo + '/app.js'));
 });
 
 // 合并多个图标文件到单张文件,并输出对应的css样式
@@ -78,12 +92,19 @@ gulp.task('sprites', () => {
         .pipe(gulpif('*.png', gulp.dest('./dist/images/'), gulp.dest('./src/scss')));
 });
 
-
-gulp.task('watch', () => {
-    gulp.watch(paths.htmlFrom, ['copy:html']);
-    gulp.watch(paths.stylesFrom, ['styles']);
-    gulp.watch(paths.scriptsFrom, ['scripts']);
+gulp.task('server', [], () => {
+    browserSync({
+        notify: true,
+        logPrefix: 'GFS',
+        server: ['dist'],
+        port: 3000
+    });
+    gulp.watch([paths.imagesFrom], ['copy:images', browserSync.reload]);
+    gulp.watch([paths.htmlFrom], ['copy:html', browserSync.reload]);
+    gulp.watch([paths.stylesFrom], ['styles', browserSync.reload]);
+    gulp.watch([paths.scriptsFrom], ['scripts', browserSync.reload]);
 });
 
-gulp.task('default', ['copy:libs', 'watch']);
-gulp.task('build', ['copy:libs', 'copy:html', 'styles', 'scripts']);
+gulp.task('build', ['copy:images', 'copy:libs', 'copy:html', 'styles', 'scripts']);
+
+gulp.task('default', ['build', 'server']);
