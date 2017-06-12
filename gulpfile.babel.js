@@ -9,7 +9,8 @@ import gulpif from 'gulp-if';
 import sprity from 'sprity';
 import browserSync from 'browser-sync';
 import plumber from 'gulp-plumber';
-import fs from 'fs';
+import source from 'vinyl-source-stream';
+import buffer from 'vinyl-buffer';
 
 let paths = {
     imagesFrom: ['src/images/**/*'],
@@ -68,16 +69,21 @@ gulp.task('styles', () => {
 });
 
 gulp.task('scripts', () => {
-    browserify({debug: true})
-        .transform('babelify',{
+    let b = browserify({debug: true})
+        .transform('babelify', {
             comments: true
         })
-        .require("./src/scripts/entry.js", {entry: true})
-        .bundle()
-        .on("error", function (err) {
-            console.log("Error: " + err.message);
+        .require("./src/scripts/entry.js", {entry: true});
+    return b.bundle()
+        .on('error', function(err){
+            console.log(err.message);
+            this.emit('end');
         })
-        .pipe(fs.createWriteStream(paths.scriptsTo + '/app.js'));
+        .pipe(source('app.js'))
+        .pipe(buffer())
+        .pipe(sourcemaps.init())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(paths.scriptsTo));
 });
 
 // 合并多个图标文件到单张文件,并输出对应的css样式
