@@ -2,8 +2,17 @@
   "name": "gulp-frontend-starter",
   "version": "0.0.1",
   "description": "fontend starter with gulp",
-  "repository": "",
-  "author": "buuug7 <puguohong@gmail.com>",
+  "keywords": [
+    "gulp",
+    "starter",
+    "frontend"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/buuug7/gulp-frontend-starter.git"
+  },
+  "author": "buuug7 <youpp@126.com>",
+  "license": "MIT",
   "scripts": {
     "watch": "cross-env NODE_ENV=development gulp",
     "build": "cross-env NODE_ENV=production gulp build"
@@ -30,5 +39,8 @@
     "gulp.spritesmith": "^6.5.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "engines": {
+    "node": ">=4"
   }
 }

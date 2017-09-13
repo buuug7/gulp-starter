@@ -1,4 +1,8 @@
 # gulp frontend starter
+build frontend project with gulp
+
+## Status
+[![npm version](https://img.shields.io/npm/v/bootstrap.svg)](https://www.npmjs.com/package/bootstrap)
 
 ## usage
 + clone this repository `git clone https://gitub.com/buuug7/gulp-frontend-starter YOUR_PROJECT_NAME`
@@ -28,3 +32,6 @@
 
 ## create github repository from cli
 `curl -u 'username' https://api.github.com/user/repos -d '{"name":"RepoName"}'`
+
+## License
+Code released under the [MIT License](https://github.com/buuug7/gulp-frontend-starter/blob/master/LICENSE). 

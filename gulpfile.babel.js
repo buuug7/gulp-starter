@@ -51,7 +51,7 @@ gulp.task("copy:libs", () => {
     return gulp.src(paths.libsFrom, {
         base: 'node_modules'
     })
-        .pipe(gulp.dest('./src/libs')) // for hint work in src directory
+        .pipe(gulp.dest('./src/libs')) // 仅仅为了提示
         .pipe(gulp.dest(paths.libsTo));
 });
 
