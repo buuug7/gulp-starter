@@ -25,7 +25,7 @@ build frontend project with gulp
 + first put your icons images to `images/icons` directory
 + and then run `gulp sprite`
 + your will see the generated file `sprite.png` and `sprite.css` in the `dist/images` and `dist/styles` directory
-+ this is default config,you can  customize the configuration in the `gulpfile.bable.js` file 
++ you can  customize the configuration in the `gulpfile.bable.js` file 
 
 ## create github repository from cli
 `curl -u 'username' https://api.github.com/user/repos -d '{"name":"RepoName"}'`
