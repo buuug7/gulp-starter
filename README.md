@@ -24,10 +24,12 @@ build frontend project with gulp
 ## directory structure
 + `src` your source code, all your work will be in this directory
     - `images` all your images puts here
-    - `libs` the files of your project needed packages
     - `scripts` all your javascript file
     - `scss` all your scss files
 + `dist` the output of your project
+
+## where place html files ?
+you can put html files under `src` directory,but you can place them somewhere else accroding your preference.
 
 ## sprite your icons ?
 + first put your icons images to `images/icons` directory
