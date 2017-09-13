@@ -18,19 +18,20 @@ let paths = {
     // src
     imagesFrom: ['src/images/**/*'],
     imagesTo: 'dist/images',
+
     libsFrom: [
         'node_modules/jquery/dist/**/*.js',
         'node_modules/bootstrap/dist/**/*',
         'node_modules/popper.js/dist/**/*',
     ],
-
-    // to directory
-    // dist
     libsTo: 'dist/libs',
+
     stylesFrom: ['src/scss/**/*.scss'],
     stylesTo: 'dist/styles',
+
     scriptsFrom: ['src/scripts/**/*.js'],
     scriptsTo: 'dist/scripts',
+
     htmlFrom: ['src/**/*.html'],
     htmlTo: 'dist'
 };
