@@ -1,6 +1,5 @@
 # gulp frontend starter
 
-
 ## usage
 + clone this repository `git clone https://gitub.com/buuug7/gulp-frontend-starter YOUR_PROJECT_NAME`
 + run `npm install` or `yarn`
@@ -13,7 +12,6 @@
 + [bootstrapV4](https://github.com/twbs/bootstrap)
 + [popper.js](https://github.com/FezVrasta/popper.js)
 
-
 ## directory structure
 + `src` your source code, all your work will be in this directory
     - `images` all your images puts here
@@ -21,7 +19,6 @@
     - `scripts` all your javascript file 
     - `scss` all your scss files
 + `dist` the output of your project 
-
 
 ## sprite your icons ?
 + first put your icons images to `images/icons` directory

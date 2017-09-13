@@ -79,7 +79,7 @@ gulp.task('styles', () => {
         }))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(paths.stylesTo))
-        .pipe(gulp.dest('./src/styles')); // for hint work in src directory
+        .pipe(gulp.dest('./src/styles')); // 仅仅为了提示
 });
 
 // compile scripts files
@@ -110,7 +110,7 @@ gulp.task('sprite', () => {
             imgPath: '../images/sprite.png'
         }))
         .pipe(gulpif('*.png', gulp.dest('./dist/images/'), gulp.dest('./dist/styles')))
-        .pipe(gulp.dest('./src/styles'));
+        .pipe(gulp.dest('./src/styles')); // 仅仅为了提示
 });
 
 // server
