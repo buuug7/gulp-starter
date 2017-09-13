@@ -22,5 +22,12 @@
     - `scss` all your scss files
 + `dist` the output of your project 
 
+
+## sprite your icons ?
++ first put your icons images to `images/icons` directory
++ and then run `gulp sprite`
++ your will see the generated file `sprite.png` and `sprite.css` in the `dist/images` and `dist/styles` directory
++ this is default config,you can  customize the configuration in the `gulpfile.bable.js` file 
+
 ## create github repository from cli
 `curl -u 'username' https://api.github.com/user/repos -d '{"name":"RepoName"}'`

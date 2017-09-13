@@ -6,7 +6,7 @@ import browserify from 'browserify';
 import babelify from 'babelify';
 import del from 'del';
 import gulpif from 'gulp-if';
-import sprity from 'sprity';
+import spritesmith from 'gulp.spritesmith';
 import browserSync from 'browser-sync';
 import plumber from 'gulp-plumber';
 import source from 'vinyl-source-stream';
@@ -102,15 +102,15 @@ gulp.task('scripts', () => {
 });
 
 // 合并多个图标文件到单张文件,并输出对应的css样式
-gulp.task('sprites', () => {
-    return sprity.src({
-        src: './src/images/**/*.{png,jpg}',
-        style: './_sprite.scss',
-        processor: 'sass',
-        prefix: 'icons',
-        name: 'icons'
-    })
-        .pipe(gulpif('*.png', gulp.dest('./dist/images/'), gulp.dest('./src/scss')));
+gulp.task('sprite', () => {
+    return gulp.src('src/images/icons/*.png')
+        .pipe(spritesmith({
+            imgName: 'sprite.png',
+            cssName: 'sprite.css',
+            imgPath: '../images/sprite.png'
+        }))
+        .pipe(gulpif('*.png', gulp.dest('./dist/images/'), gulp.dest('./dist/styles')))
+        .pipe(gulp.dest('./src/styles'));
 });
 
 // server
