@@ -1,9 +1,6 @@
 # gulp frontend starter
 build frontend project with gulp
 
-## Status
-[![npm version](https://img.shields.io/npm/v/bootstrap.svg)](https://www.npmjs.com/package/bootstrap)
-
 ## usage
 + clone this repository `git clone https://gitub.com/buuug7/gulp-frontend-starter YOUR_PROJECT_NAME`
 + run `npm install` or `yarn`
