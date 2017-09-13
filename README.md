@@ -28,7 +28,7 @@ build frontend project with gulp
     - `scss` all your scss files
 + `dist` the output of your project
 
-## where place html files ?
+## where html files place?
 you can put html files under `src` directory,but you can place them somewhere else accroding your preference.
 
 ## sprite your icons ?
