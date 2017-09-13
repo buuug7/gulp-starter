@@ -4,9 +4,9 @@
 ## usage
 + clone this repository `git clone https://gitub.com/buuug7/gulp-frontend-starter YOUR_PROJECT_NAME`
 + run `npm install` or `yarn`
-+ run `gulp` or `gulp build` to start your work
-    - `gulp` build and watch your source code under `src` directory
-    - `gulp build` build your source code to dist directory 
++ run `npm run watch` or `npm run build` to start your work
+    - `npm run watch` build and watch your source code under `src` directory
+    - `npm run build` build your source code to dist directory 
 
 ## include
 + [jquery](https://github.com/jquery/jquery)

@@ -4,6 +4,10 @@
   "description": "fontend starter with gulp",
   "repository": "",
   "author": "buuug7 <puguohong@gmail.com>",
+  "scripts": {
+    "watch": "cross-env NODE_ENV=development gulp",
+    "build": "cross-env NODE_ENV=production gulp build"
+  },
   "dependencies": {
     "bootstrap": "4.0.0-beta",
     "jquery": "^3.2.1",
@@ -14,6 +18,7 @@
     "babelify": "^7.3.0",
     "browser-sync": "^2.18.12",
     "browserify": "^13.0.0",
+    "cross-env": "^5.0.5",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
