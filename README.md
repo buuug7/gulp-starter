@@ -35,8 +35,6 @@ build frontend project with gulp
 + your will see the generated file `sprite.png` and `sprite.css` in the `dist/images` and `dist/styles` directory
 + you can  customize the configuration in the `gulpfile.bable.js` file
 
-## create github repository from cli
-`curl -u 'username' https://api.github.com/user/repos -d '{"name":"RepoName"}'`
 
 ## License
 Code released under the [MIT License](https://github.com/buuug7/gulp-frontend-starter/blob/master/LICENSE).
