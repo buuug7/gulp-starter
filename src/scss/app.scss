@@ -1,6 +1,10 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
 @import "variables";
-@import "node_modules/bootstrap/scss/bootstrap";
 
-body{
+// Bootstrap
+@import "node_modules/bootstrap/scss/bootstrap.scss";
 
-}
+// your custom scss file here

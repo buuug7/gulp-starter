@@ -2,5 +2,5 @@
 *  you javascript file
 * */
 
-let name = "buuug7";
+let name = "gulp frontend starter";
 console.log(name);

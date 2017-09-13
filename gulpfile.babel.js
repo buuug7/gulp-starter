@@ -11,15 +11,21 @@ import browserSync from 'browser-sync';
 import plumber from 'gulp-plumber';
 import source from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
+import fileinclude from 'gulp-file-include';
 
 let paths = {
+    // from directory
+    // src
     imagesFrom: ['src/images/**/*'],
     imagesTo: 'dist/images',
     libsFrom: [
         'node_modules/jquery/dist/**/*.js',
         'node_modules/bootstrap/dist/**/*',
-        'node_modules/tether/dist/**/*',
+        'node_modules/popper.js/dist/**/*',
     ],
+
+    // to directory
+    // dist
     libsTo: 'dist/libs',
     stylesFrom: ['src/scss/**/*.scss'],
     stylesTo: 'dist/styles',
@@ -29,16 +35,18 @@ let paths = {
     htmlTo: 'dist'
 };
 
-
+// clean dist directory
 gulp.task("clean", () => {
     return del(["dist"]);
 });
 
+// copy images
 gulp.task('copy:images', () => {
     return gulp.src(paths.imagesFrom)
         .pipe(gulp.dest(paths.imagesTo));
 });
 
+// copy node_modules file to libs directory
 gulp.task("copy:libs", () => {
     return gulp.src(paths.libsFrom, {
         base: 'node_modules'
@@ -47,11 +55,17 @@ gulp.task("copy:libs", () => {
         .pipe(gulp.dest(paths.libsTo));
 });
 
+// copy and include html
 gulp.task('copy:html', () => {
     return gulp.src(paths.htmlFrom)
+        .pipe(fileinclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
         .pipe(gulp.dest(paths.htmlTo));
 });
 
+// compile scss files
 gulp.task('styles', () => {
     return gulp.src(paths.stylesFrom)
         .pipe(plumber())
@@ -68,6 +82,7 @@ gulp.task('styles', () => {
         .pipe(gulp.dest('./src/styles')); // for hint work in src directory
 });
 
+// compile scripts files
 gulp.task('scripts', () => {
     let b = browserify({debug: true})
         .transform('babelify', {
@@ -75,7 +90,7 @@ gulp.task('scripts', () => {
         })
         .require("./src/scripts/entry.js", {entry: true});
     return b.bundle()
-        .on('error', function(err){
+        .on('error', function (err) {
             console.log(err.message);
             this.emit('end');
         })
@@ -98,6 +113,7 @@ gulp.task('sprites', () => {
         .pipe(gulpif('*.png', gulp.dest('./dist/images/'), gulp.dest('./src/scss')));
 });
 
+// server
 gulp.task('server', [], () => {
     browserSync({
         notify: true,
@@ -111,6 +127,8 @@ gulp.task('server', [], () => {
     gulp.watch([paths.scriptsFrom], ['scripts', browserSync.reload]);
 });
 
+// build
 gulp.task('build', ['copy:images', 'copy:libs', 'copy:html', 'styles', 'scripts']);
 
+// watch
 gulp.task('default', ['build', 'server']);
