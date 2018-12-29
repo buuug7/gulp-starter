@@ -3,4 +3,5 @@
 * */
 
 let name = "gulp frontend starter";
-console.log(name);
+
+console.log(name)

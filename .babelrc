@@ -1,9 +1,3 @@
 {
-  "presets": [
-    ["env", {
-      "targets": {
-        "browsers": ["last 5 versions", "safari >= 7"]
-      }
-    }]
-  ]
+    "presets": ["@babel/preset-env"]
 }

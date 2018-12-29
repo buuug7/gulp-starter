@@ -1,46 +1,35 @@
 {
-  "name": "gulp-frontend-starter",
-  "version": "0.1.4",
-  "description": "fontend starter with gulp",
-  "keywords": [
-    "gulp",
-    "starter",
-    "frontend"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/buuug7/gulp-frontend-starter.git"
-  },
-  "author": "buuug7 <youpp@126.com>",
-  "license": "MIT",
-  "scripts": {
-    "watch": "cross-env NODE_ENV=development gulp",
-    "build": "cross-env NODE_ENV=production gulp build"
-  },
-  "dependencies": {
-    "bootstrap": "4.0.0-beta",
-    "jquery": "^3.2.1",
-    "popper.js": "^1.12.5"
-  },
-  "devDependencies": {
-    "babel-preset-env": "^1.5.2",
-    "babelify": "^7.3.0",
-    "browser-sync": "^2.18.12",
-    "browserify": "^13.0.0",
-    "cross-env": "^5.0.5",
-    "del": "^2.2.2",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.0.0",
-    "gulp-file-include": "^1.2.0",
-    "gulp-if": "^2.0.2",
-    "gulp-plumber": "^1.1.0",
-    "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.0",
-    "gulp.spritesmith": "^6.5.1",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
-  },
-  "engines": {
-    "node": ">=4"
-  }
+    "name": "gulp-frontend-starter",
+    "version": "1.0.0",
+    "description": "frontend starter with gulp",
+    "keywords": [
+        "gulp",
+        "starter",
+        "frontend"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/buuug7/gulp-frontend-starter.git"
+    },
+    "author": "buuug7 <youpp@126.com>",
+    "license": "MIT",
+    "scripts": {
+        "start": "gulp start",
+        "build": "gulp build"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "@babel/core": "^7.2.2",
+        "@babel/preset-env": "^7.2.3",
+        "@babel/register": "^7.0.0",
+        "browser-sync": "^2.26.3",
+        "delete": "^1.1.0",
+        "gulp": "^4.0.0",
+        "gulp-autoprefixer": "^6.0.0",
+        "gulp-babel": "^8.0.0",
+        "gulp-cli": "^2.0.1",
+        "gulp-sass": "^4.0.2",
+        "gulp-sourcemaps": "^2.6.4",
+        "gulp-uglify": "^3.0.1"
+    }
 }
