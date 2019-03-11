@@ -12,4 +12,4 @@ build frontend project with gulp4
 + `dist` the output assert of your project
 
 ## License
-Code released under the [MIT License](https://github.com/buuug7/gulp-frontend-starter/blob/master/LICENSE).
+Code released under the [MIT License](https://github.com/buuug7/gulp-starter/blob/master/LICENSE).
