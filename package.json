@@ -3,21 +3,20 @@
     "version": "1.0.0",
     "description": "frontend starter with gulp",
     "main": "",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/buuug7/gulp-starter.git"
-    },
-    "author": "buuug7 <youpp@126.com>",
     "scripts": {
         "start": "gulp start",
-        "build": "gulp build"
+        "build": "gulp build",
+        "pretty-quick": "pretty-quick"
+    },
+    "prettier": {
+        "singleQuote": true
     },
     "dependencies": {},
     "devDependencies": {
-        "@babel/core": "^7.4.5",
-        "@babel/preset-env": "^7.4.5",
-        "@babel/register": "^7.4.4",
-        "browser-sync": "^2.26.5",
+        "@babel/core": "^7.5.5",
+        "@babel/preset-env": "^7.5.5",
+        "@babel/register": "^7.5.5",
+        "browser-sync": "^2.26.7",
         "delete": "^1.1.0",
         "gulp": "^4.0.2",
         "gulp-autoprefixer": "^6.1.0",
@@ -25,8 +24,15 @@
         "gulp-cli": "^2.2.0",
         "gulp-sass": "^4.0.2",
         "gulp-sourcemaps": "^2.6.4",
-        "gulp-uglify": "^3.0.1"
+        "gulp-uglify": "^3.0.1",
+        "prettier": "^1.18.2",
+        "pretty-quick": "^1.11.1"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/buuug7/gulp-starter.git"
+    },
+    "author": "buuug7 <youpp@126.com>",
     "keywords": [
         "gulp starter",
         "gulp frontend starter"

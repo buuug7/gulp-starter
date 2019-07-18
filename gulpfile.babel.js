@@ -10,7 +10,7 @@ import browserSync from 'browser-sync';
 const browserSyncInstance = browserSync.create();
 
 // delete dist directory
-const clean = (cb) => del(['./dist'], cb);
+const clean = cb => del(['./dist'], cb);
 
 // transform javascript and minify
 const js = () =>
@@ -23,16 +23,21 @@ const js = () =>
         .pipe(browserSyncInstance.stream());
 
 // compile scss
-const css = () => src('./src/**/*.scss')
-    .pipe(sass({
-        outputStyle: 'nested' //nested, expanded, compact, compressed
-    }).on('error', sass.logError))
-    .pipe(autoprefixer({
-        browsers: ['last 2 versions'],
-        cascade: false
-    }))
-    .pipe(dest(['./dist']))
-    .pipe(browserSyncInstance.stream());
+const css = () =>
+    src('./src/**/*.scss')
+        .pipe(
+            sass({
+                outputStyle: 'nested' //nested, expanded, compact, compressed
+            }).on('error', sass.logError)
+        )
+        .pipe(
+            autoprefixer({
+                browsers: ['last 2 versions'],
+                cascade: false
+            })
+        )
+        .pipe(dest(['./dist']))
+        .pipe(browserSyncInstance.stream());
 
 // build
 export const build = series(clean, css, js);
@@ -44,5 +49,9 @@ export const start = () => {
     });
     watch('./src/**/*.js', js);
     watch('./src/**/*.scss', css);
-    watch(['./src/**/*.html', './index.html'], { events: 'change' }, browserSyncInstance.reload);
+    watch(
+        ['./src/**/*.html', './index.html'],
+        { events: 'change' },
+        browserSyncInstance.reload
+    );
 };
