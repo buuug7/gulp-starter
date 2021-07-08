@@ -18,7 +18,7 @@ const clean = cb => del(['./dist'], cb);
 const js = () =>
     src('./src/**/*.js')
         .pipe(sourcemaps.init())
-        .pipe(babel({ presets: ['@babel/env'] }))
+        .pipe(babel())
         .pipe(uglify())
         .pipe(sourcemaps.write())
         .pipe(dest(['./dist']))
