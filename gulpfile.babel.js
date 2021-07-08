@@ -2,11 +2,13 @@ import { src, dest, watch, series, parallel } from 'gulp';
 import del from 'delete';
 import babel from 'gulp-babel';
 import uglify from 'gulp-uglify';
-import sass from 'gulp-sass';
+import gulpSass from 'gulp-sass';
+import dartSass from 'sass'
 import autoprefixer from 'gulp-autoprefixer';
 import sourcemaps from 'gulp-sourcemaps';
 import browserSync from 'browser-sync';
 
+const sass = gulpSass( dartSass );
 const browserSyncInstance = browserSync.create();
 
 // delete dist directory
@@ -26,9 +28,7 @@ const js = () =>
 const css = () =>
     src('./src/**/*.scss')
         .pipe(
-            sass({
-                outputStyle: 'nested' //nested, expanded, compact, compressed
-            }).on('error', sass.logError)
+            sass().on('error', sass.logError)
         )
         .pipe(
             autoprefixer({

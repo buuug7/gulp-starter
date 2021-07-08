@@ -5,28 +5,23 @@
     "main": "",
     "scripts": {
         "start": "gulp start",
-        "build": "gulp build",
-        "pretty-quick": "pretty-quick"
+        "build": "gulp build"
     },
-    "prettier": {
-        "singleQuote": true
-    },
-    "dependencies": {},
     "devDependencies": {
-        "@babel/core": "^7.5.5",
-        "@babel/preset-env": "^7.5.5",
-        "@babel/register": "^7.5.5",
-        "browser-sync": "^2.26.7",
+        "@babel/core": "^7.14.6",
+        "@babel/preset-env": "^7.14.7",
+        "@babel/register": "^7.14.5",
+        "browser-sync": "^2.27.4",
         "delete": "^1.1.0",
         "gulp": "^4.0.2",
         "gulp-autoprefixer": "^6.1.0",
         "gulp-babel": "^8.0.0",
-        "gulp-cli": "^2.2.0",
-        "gulp-sass": "^4.0.2",
+        "gulp-cli": "^2.3.0",
+        "gulp-sass": "^5.0.0",
+        "sass": "^1.35.2",
         "gulp-sourcemaps": "^2.6.4",
         "gulp-uglify": "^3.0.1",
-        "prettier": "^1.18.2",
-        "pretty-quick": "^1.11.1"
+        "prettier": "^2.3.2"
     },
     "repository": {
         "type": "git",
