@@ -31,6 +31,7 @@ function js(reload = false) {
     output: {
       filename: "app.bundle.js",
     },
+    devtool: "inline-source-map",
   };
   const logErr = (err, stat) => {
     if (err) console.log(err);
@@ -83,7 +84,7 @@ export const start = () => {
     server: ["dist"],
   });
 
-  watch(["./src/**/*.js"], () => js(true));
-  watch(["./src/**/*.scss"], () => css(true));
-  watch(["./src/**/*.html"], () => copyHtml(true));
+  watch(["./src/**/*.js"], { ignoreInitial: false }, () => js(true));
+  watch(["./src/**/*.scss"], { ignoreInitial: false }, () => css(true));
+  watch(["./src/**/*.html"], { ignoreInitial: false }, () => copyHtml(true));
 };
