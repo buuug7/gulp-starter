@@ -1,7 +1,3 @@
-/*
- *  you javascript file
- * */
+import { add } from "./add";
 
-let name = "gulp frontend starter";
-
-console.log(name);
+document.body.append(`The sum of 1 + 2 is ${add(1, 2)}`);

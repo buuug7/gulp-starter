@@ -1,36 +1,43 @@
 {
-    "name": "gulp-starter",
-    "version": "1.0.0",
-    "description": "frontend starter with gulp",
-    "main": "",
-    "scripts": {
-        "start": "gulp start",
-        "build": "gulp build"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.14.6",
-        "@babel/preset-env": "^7.14.7",
-        "@babel/register": "^7.14.5",
-        "browser-sync": "^2.27.4",
-        "delete": "^1.1.0",
-        "gulp": "^4.0.2",
-        "gulp-autoprefixer": "^6.1.0",
-        "gulp-babel": "^8.0.0",
-        "gulp-cli": "^2.3.0",
-        "gulp-sass": "^5.0.0",
-        "sass": "^1.35.2",
-        "gulp-sourcemaps": "^2.6.4",
-        "gulp-uglify": "^3.0.1",
-        "prettier": "^2.3.2"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/buuug7/gulp-starter.git"
-    },
-    "author": "buuug7 <youpp@126.com>",
-    "keywords": [
-        "gulp starter",
-        "gulp frontend starter"
-    ],
-    "license": "MIT"
+  "name": "gulp-starter",
+  "version": "1.0.0",
+  "description": "frontend starter with gulp",
+  "main": "",
+  "scripts": {
+    "start": "gulp start",
+    "build": "gulp build"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "@types/gulp": "^4.0.9",
+    "browser-sync": "^2.27.4",
+    "delete": "^1.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.1",
+    "prettier": "^2.3.2",
+    "sass": "^1.35.2",
+    "webpack": "^5.44.0",
+    "webpack-stream": "^6.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/buuug7/gulp-starter.git"
+  },
+  "author": "buuug7 <youpp@126.com>",
+  "keywords": [
+    "gulp starter",
+    "gulp frontend starter"
+  ],
+  "license": "MIT",
+  "browserslist": [
+    "last 2 versions",
+    "not IE > 0"
+  ]
 }
