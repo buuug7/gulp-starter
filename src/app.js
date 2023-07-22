@@ -1,3 +1,3 @@
-import { add } from "./add";
+import { hello } from "./hello";
 
-document.body.append(`The sum of 1 + 2 is ${add(1, 2)}`);
+hello();
